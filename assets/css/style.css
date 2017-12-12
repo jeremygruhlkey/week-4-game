@@ -1,0 +1,90 @@
+body {
+    background-image: url("../images/walker.jpg");  
+}
+
+header {
+    text-align: right;
+    padding-right: 200px;
+    padding-top: 3px;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-Spacing: 3px;
+}
+
+h3 {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-left: 20px;
+}
+
+.character-choices {
+    border: 1px solid black;
+    height: 150px;
+    width: 650px;
+    margin-bottom: 10px;
+}
+.choice {
+    height: 150px;
+    width: 150px;
+    background-color: #ebe8e8;
+    margin-left: 10px;
+    float: left;
+}
+
+.char-text {
+    font-size: 13px;
+    text-align: center;
+    
+}
+.luke-pic {
+    height: 120px;
+    margin: 1px 0px 1px 33px;
+}
+
+.han-pic {
+    height: 121px;
+    margin-left: 35px;
+} 
+
+.boba-pic {
+    height: 121px;
+    margin-left: 35px;
+} 
+
+.vader-pic {
+    height:  120px;
+    margin-left: 35px;
+}
+
+.enemies-available {
+    border: 1px solid black;
+    height: 150px;
+    width: 495px;
+}
+
+.enemy-choice {
+    height: 150px;
+    width: 150px;
+    margin-left: 10px;
+    border: 1px solid red;
+    float: left;
+}
+
+button {
+    margin: 4px 4px 4px 20px;
+}
+
+.defender-box {
+    height: 150px;
+    width: 170px;
+    border: 1px solid black;
+}
+
+.defender {
+    height: 150px;
+    width: 150px;
+    margin-left: 10px;
+    border: 1px solid red;
+    float: left;
+}
