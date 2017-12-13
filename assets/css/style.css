@@ -31,7 +31,9 @@ h3 {
     margin-left: 10px;
     float: left;
 }
-
+.selected {
+    background-color: red;
+}
 .char-text {
     font-size: 13px;
     text-align: center;
