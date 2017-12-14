@@ -106,6 +106,24 @@ $(document).ready(function(){
                 console.log(defender);
             }
 
+            else if (enemySelection.hasClass("han")) {
+                defender = hanChar;
+                $(".defender-box").append($("#han"));
+                console.log(defender);
+            }
+
+            else if (enemySelection.hasClass("boba")) {
+                defender = bobaChar;
+                $(".defender-box").append($("#boba"));
+                console.log(defender);
+            }
+
+            else if (enemySelection.hasClass("vader")) {
+                defender = vaderChar;
+                $(".defender-box").append($("#vader"));
+                console.log(defender);
+            }
+
         });
 
     };
