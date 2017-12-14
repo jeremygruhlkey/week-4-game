@@ -10,7 +10,7 @@ $(document).ready(function(){
     var hanChar = {
         health: 100,
         attack: 7,
-        counterAttack: 15
+        counterAttack: 20
     };
 
     var bobaChar = {
@@ -27,6 +27,9 @@ $(document).ready(function(){
 
     var playerOne;
     var defender;
+    var attack = 7;
+
+    var playerOneHealthDiv;
 
     function choosePlayer() {
         $(".choice").click(function() {
@@ -38,9 +41,9 @@ $(document).ready(function(){
                 return;
             }
 
-            
             if (selection.hasClass("luke")) {
                 playerOne = lukeChar;
+                playerOneHealthDiv = $("#luke-health");
                 $("#han").addClass("enemy");
                 $("#enemies-available").append($("#han"));
                 $("#boba").addClass("enemy");
@@ -48,6 +51,7 @@ $(document).ready(function(){
                 $("#vader").addClass("enemy");
                 $("#enemies-available").append($("#vader"));
                 console.log(playerOne);
+                console.log(playerOneHealthDiv)
             }
 
             else if (selection.hasClass("han")) {
@@ -93,6 +97,7 @@ $(document).ready(function(){
     function chooseDefender() {
         
         if (defender) {
+            doBattle();
             console.log(defender);
             return;
         }
@@ -124,11 +129,29 @@ $(document).ready(function(){
                 console.log(defender);
             }
 
+            doBattle();
         });
 
     };
 
-    
+    function doBattle() {
+        var playerOneHealth = playerOne.health;
+            console.log("player one health: " + playerOneHealth);
+        var defenderHealth = defender.health;
+        var defenderAttack = defender.counterAttack
+            console.log("defender health: " + defenderHealth);
+            $("#attack").click(function() {
+                playerOneHealth = playerOneHealth - defenderAttack;
+                defenderHealth = defenderHealth - attack;
+                attack = attack + 7;
+                    console.log("new playerOne health: " + playerOneHealth);
+                    console.log("new defender health: " + defenderHealth);
+                    console.log("new attack: " + attack);
+                
+
+        });
+
+    }
     choosePlayer();  
 
     
