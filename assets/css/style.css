@@ -31,7 +31,7 @@ h3 {
     margin-left: 10px;
     float: left;
 }
-.selected {
+.enemy {
     background-color: red;
 }
 .char-text {
