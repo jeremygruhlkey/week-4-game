@@ -32,7 +32,15 @@ h3 {
     float: left;
 }
 .enemy {
+    height: 150px;
+    width: 150px;
     background-color: red;
+    margin-left: 10px;
+    float: left;
+}
+
+.defender-black {
+    background-color: grey;
 }
 .char-text {
     font-size: 13px;
@@ -89,4 +97,18 @@ button {
     margin-left: 10px;
     border: 1px solid red;
     float: left;
+}
+
+.fight-update {
+    width: 150px;
+    text-align: center;
+    font-weight: bold;
+    /* color: red; */
+}
+.restart {
+    display: none;
+}
+
+.unhide-button {
+    display: inline;
 }
