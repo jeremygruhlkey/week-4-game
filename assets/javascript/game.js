@@ -22,7 +22,7 @@ $(document).ready(function(){
     var vaderChar = {
         health: 190,
         attack: 7,
-        counterAttack: 35
+        counterAttack: 30
     };
 
     var playerOne;
@@ -43,7 +43,7 @@ $(document).ready(function(){
                 return;
             }
 
-            if (selection.hasClass("luke")) {
+            else if (selection.hasClass("luke")) {
                 playerOne = lukeChar;
                 playerOneHealthDiv = $("#luke-health");
                 $("#han").addClass("enemy");
@@ -56,6 +56,8 @@ $(document).ready(function(){
                 $("#enemies-available").append($("#vader"));
                 console.log(playerOne);
                 console.log(playerOneHealthDiv);
+                chooseDefender();
+                
             }
 
             else if (selection.hasClass("han")) {
@@ -70,6 +72,8 @@ $(document).ready(function(){
                 $("#enemies-available").append($("#vader"));
                 console.log(playerOne);
                 console.log(playerOneHealthDiv);
+                chooseDefender();
+                
             }
 
             else if (selection.hasClass("boba")) {
@@ -83,6 +87,8 @@ $(document).ready(function(){
                 $("#enemies-available").append($("#vader"));
                 console.log(playerOne);
                 console.log(playerOneHealthDiv);
+                chooseDefender();
+                
             }
 
             else if (selection.hasClass("vader")) {
@@ -96,10 +102,10 @@ $(document).ready(function(){
                 $("#enemies-available").append($("#boba"));
                 console.log(playerOne);
                 console.log(playerOneHealthDiv);
+                chooseDefender();
+                
             }
-            
-            chooseDefender();
-    
+            // $('.choice').off('click')
     
         });
     };
@@ -110,7 +116,8 @@ $(document).ready(function(){
         //     doBattle();
         //     return;
         // }
-
+        $('.enemy').on('click');
+        
         $(".enemy").click(function() {
             var enemySelection = $(this);
 
@@ -146,7 +153,7 @@ $(document).ready(function(){
                 console.log(defender);
             }
 
-            
+            $('.enemy').off('click');
             doBattle();
         });
 
@@ -186,6 +193,9 @@ $(document).ready(function(){
                         $(".defender-box").empty();
                         $(".fight-update").html("You won this round! Select another opponinet!");
                         $(playerOneHealthDiv).html(playerOne.health);
+                        $('#attack').off('click');
+                        $('.enemy').on('click');
+                        
                         chooseDefender();
                     }
                     
