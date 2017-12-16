@@ -31,7 +31,7 @@ $(document).ready(function(){
 
     var playerOneHealthDiv;
     var gameOver = false;
-
+    var winCounter = 0;
     
 
     function choosePlayer() {
@@ -54,8 +54,8 @@ $(document).ready(function(){
                 $("#enemies-available").append($("#boba"));
                 $("#vader").addClass("enemy");
                 $("#enemies-available").append($("#vader"));
-                console.log(playerOne);
-                console.log(playerOneHealthDiv);
+                // console.log(playerOne);
+                // console.log(playerOneHealthDiv);
                 chooseDefender();
                 
             }
@@ -70,8 +70,8 @@ $(document).ready(function(){
                 $("#enemies-available").append($("#boba"));
                 $("#vader").addClass("enemy");
                 $("#enemies-available").append($("#vader"));
-                console.log(playerOne);
-                console.log(playerOneHealthDiv);
+                // console.log(playerOne);
+                // console.log(playerOneHealthDiv);
                 chooseDefender();
                 
             }
@@ -85,8 +85,8 @@ $(document).ready(function(){
                 $("#enemies-available").append($("#han"));
                 $("#vader").addClass("enemy");
                 $("#enemies-available").append($("#vader"));
-                console.log(playerOne);
-                console.log(playerOneHealthDiv);
+                // console.log(playerOne);
+                // console.log(playerOneHealthDiv);
                 chooseDefender();
                 
             }
@@ -100,8 +100,8 @@ $(document).ready(function(){
                 $("#enemies-available").append($("#han"));
                 $("#boba").addClass("enemy");
                 $("#enemies-available").append($("#boba"));
-                console.log(playerOne);
-                console.log(playerOneHealthDiv);
+                // console.log(playerOne);
+                // console.log(playerOneHealthDiv);
                 chooseDefender();
                 
             }
@@ -126,7 +126,7 @@ $(document).ready(function(){
                 defenderHealthDiv = $("#luke-health");
                 $("#luke").addClass("defender-black");
                 $(".defender-box").append($("#luke"));
-                console.log(defender);
+                // console.log(defender);
             }
 
             else if (enemySelection.hasClass("han")) {
@@ -134,7 +134,7 @@ $(document).ready(function(){
                 defenderHealthDiv = $("#han-health");
                 $("#han").addClass("defender-black");
                 $(".defender-box").append($("#han"));
-                console.log(defender);
+                // console.log(defender);
             }
 
             else if (enemySelection.hasClass("boba")) {
@@ -142,7 +142,7 @@ $(document).ready(function(){
                 defenderHealthDiv = $("#boba-health");
                 $("#boba").addClass("defender-black");                
                 $(".defender-box").append($("#boba"));
-                console.log(defender);
+                // console.log(defender);
             }
 
             else if (enemySelection.hasClass("vader")) {
@@ -150,7 +150,7 @@ $(document).ready(function(){
                 defenderHealthDiv = $("#vader-health");
                 $("#vader").addClass("defender-black");                
                 $(".defender-box").append($("#vader"));
-                console.log(defender);
+                // console.log(defender);
             }
 
             $('.enemy').off('click');
@@ -165,36 +165,47 @@ $(document).ready(function(){
         }
         // var attack = 5;
         var playerOneHealth = playerOne.health;
-            console.log("player one health: " + playerOneHealth);
+            // console.log("player one health: " + playerOneHealth);
         var defenderHealth = defender.health;
         var defenderAttack = defender.counterAttack;
-            console.log("defender health: " + defenderHealth);
+            // console.log("defender health: " + defenderHealth);
             $("#attack").click(function() {
                 playerOneHealth = playerOneHealth - defenderAttack;
                 defenderHealth = defenderHealth - attack;
-                    console.log("new playerOne health: " + playerOneHealth);
-                    console.log("new defender health: " + defenderHealth);
+                    // console.log("new playerOne health: " + playerOneHealth);
+                    // console.log("new defender health: " + defenderHealth);
                     
                 $(playerOneHealthDiv).html(playerOneHealth);
                 $(defenderHealthDiv).html(defenderHealth);
                 var update = "You hit for " + attack + " and were hit back for " + defenderAttack;
                 $(".fight-update").html(update);
                 attack = attack + 5;
-                console.log("new attack: " + attack);
+                // console.log("new attack: " + attack);
                     if (playerOneHealth <= 0 && defenderHealth > 0) {
                         gameOver = true;
                         $(".fight-update").html("You LOST!!! Click restart to play again.");
+                        $("#attack").off("click");
                         restart();
                     }
-                    else if ($(".enemies-available").children().length < 1 && $(".defender-box").children().length < 1) {
-                        theEnd();
-                    }
+                    // else if ( $(".enemies-available").is(":empty") && $(".defender-box").is(":empty") ){
+                    //     $("fight-update").html("You WON!!!! Click restart to play again!!");
+                    //     $(".restart").addClass("unhide-button");
+                    // }
                     else if (defenderHealth <=  0 && playerOneHealth > 0) {
+                        winCounter = winCounter + 1;
+                        console.log("win counter: " + winCounter);
                         $(".defender-box").empty();
-                        $(".fight-update").html("You won this round! Select another opponinet!");
+                            if (winCounter > 2){
+                                $(".fight-update").html("You WIN!! The galaxy is yours. RESTART to play again!")
+                                restart();
+                            }
+                            else {
+                                $(".fight-update").html("You passed this round! Select another opponnet!");
+                            }
                         $(playerOneHealthDiv).html(playerOne.health);
                         $('#attack').off('click');
                         $('.enemy').on('click');
+                        
                         
                         chooseDefender();
                     }
@@ -205,7 +216,7 @@ $(document).ready(function(){
 
 
 
-        });
+                });
 
     };
 
@@ -216,10 +227,10 @@ $(document).ready(function(){
         })
     };
 
-    function theEnd() {
-        $("fight-update").html("You WON!!!! Click restart to play again!!");
-        $(".restart").addClass("unhide-button");
-    };
+    // function theEnd() {
+    //     $("fight-update").html("You WON!!!! Click restart to play again!!");
+    //     $(".restart").addClass("unhide-button");
+    // };
 
     choosePlayer();  
     

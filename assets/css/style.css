@@ -19,7 +19,7 @@ h3 {
 }
 
 .character-choices {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     height: 150px;
     width: 650px;
     margin-bottom: 10px;
@@ -68,7 +68,7 @@ h3 {
 }
 
 .enemies-available {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     height: 150px;
     width: 495px;
 }
@@ -88,7 +88,7 @@ button {
 .defender-box {
     height: 150px;
     width: 170px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .defender {
